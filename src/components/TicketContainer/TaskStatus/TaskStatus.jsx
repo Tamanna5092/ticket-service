@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function TaskStatus({ tickets }) {
+export default function TaskStatus({ tickets, handleTicketCardComplete }) {
   return (
     <div>
       <h1 className="text-2xl font-semibold">Task Status</h1>
@@ -8,13 +8,16 @@ export default function TaskStatus({ tickets }) {
         {tickets.length > 0 ? (
           tickets.map((ticket) => (
             // status 1: ticket added to task status
-            <div className="card bg-base-100 shadow-md mb-6">
+            <div key={ticket.id} className="card bg-base-100 shadow-md mb-6">
               <div className="card-body">
                 <h2 className="text-lg text-[#001931] font-medium">
                   {ticket.title}
                 </h2>
-                <div className="mt-6">
-                  <button className="btn w-full bg-[#02A53B] font-semibold text-white">
+                <div className="mt-4">
+                  <button
+                    onClick={() => handleTicketCardComplete(ticket.id)}
+                    className="btn w-full bg-[#02A53B] font-semibold text-white"
+                  >
                     Complete
                   </button>
                 </div>

@@ -1,4 +1,4 @@
-import React, { Suspense, useState } from "react";
+import React, { Suspense } from "react";
 import CustomerTickets from "./CustomerTickets/CustomerTickets";
 import TaskStatus from "./TaskStatus/TaskStatus";
 
@@ -7,16 +7,8 @@ const TicketData = async () => {
   return res.json();
 };
 
-export default function TicketContainer() {
-    const [tickets, setTickets] = useState([]);
-    console.log("tickets", tickets);
+export default function TicketContainer({ tickets, handleTicketCardAdd, handleTicketCardComplete }) {
   const ticketData = TicketData();
-
-  const handleTicketCardAdd = (ticket) => {
-    console.log("Ticket card clicked", ticket);
-    setTickets([...tickets, ticket]);
-  };
-
 
   return (
     <div className="grid gird-col md:grid-cols-4 gap-6 mt-10">
@@ -29,7 +21,7 @@ export default function TicketContainer() {
         </Suspense>
       </div>
       <div className="md:col-span-1">
-        <TaskStatus tickets={tickets}></TaskStatus>
+        <TaskStatus tickets={tickets} handleTicketCardComplete={handleTicketCardComplete}></TaskStatus>
       </div>
     </div>
   );
