@@ -3,6 +3,7 @@ import Banner from "./components/Banner/Banner";
 import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navbar/Navbar";
 import TicketContainer from "./components/TicketContainer/TicketContainer";
+import { ToastContainer, toast } from "react-toastify";
 
 function App() {
   const [tickets, setTickets] = useState([]);
@@ -23,11 +24,24 @@ function App() {
 
     // Add to resolvedTickets
     setResolvedTickets([...resolvedTickets, completedTicket]);
+
+    // Show toast notification
+    toast.success(`"${completedTicket.title}" marked as complete!`, {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   };
 
   return (
     <>
       <Navbar></Navbar>
+      <ToastContainer />
+
       <div className="bg-[#faf6f6] py-10">
         <div className="max-w-7xl mx-auto">
           <Banner tickets={tickets} resolvedTickets={resolvedTickets}></Banner>

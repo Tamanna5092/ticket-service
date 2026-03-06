@@ -5,7 +5,7 @@ export default function CustomerTickets({ ticketData, handleTicketCardAdd }) {
   const tickets = use(ticketData); 
   return (
     <div>
-      <h1 className="text-2xl font-semibold">Customer Tickets</h1>
+      <h1 className="text-2xl font-semibold px-4 md:px-0">Customer Tickets</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
         {tickets.map((ticket) => (
           <Ticket key={ticket.id} ticket={ticket} handleTicketCardAdd={handleTicketCardAdd} />

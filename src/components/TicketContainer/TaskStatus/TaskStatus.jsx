@@ -7,8 +7,8 @@ export default function TaskStatus({
 }) {
   return (
     <div>
-      <h1 className="text-2xl font-semibold">Task Status</h1>
-      <div className="mt-6">
+      <h1 className="text-2xl font-semibold px-4 md:px-0">Task Status</h1>
+      <div className="mt-6 px-4 md:px-0">
         {tickets.length > 0 ? (
           tickets.map((ticket) => (
             // status 1: ticket added to task status
