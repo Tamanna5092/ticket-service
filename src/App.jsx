@@ -35,6 +35,7 @@ function App() {
             tickets={tickets}
             handleTicketCardAdd={handleTicketCardAdd}
             handleTicketCardComplete={handleTicketCardComplete}
+            resolvedTickets={resolvedTickets}
           ></TicketContainer>
         </div>
       </div>

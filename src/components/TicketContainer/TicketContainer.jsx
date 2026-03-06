@@ -7,7 +7,7 @@ const TicketData = async () => {
   return res.json();
 };
 
-export default function TicketContainer({ tickets, handleTicketCardAdd, handleTicketCardComplete }) {
+export default function TicketContainer({ tickets, handleTicketCardAdd, handleTicketCardComplete, resolvedTickets }) {
   const ticketData = TicketData();
 
   return (
@@ -21,7 +21,7 @@ export default function TicketContainer({ tickets, handleTicketCardAdd, handleTi
         </Suspense>
       </div>
       <div className="md:col-span-1">
-        <TaskStatus tickets={tickets} handleTicketCardComplete={handleTicketCardComplete}></TaskStatus>
+        <TaskStatus tickets={tickets} handleTicketCardComplete={handleTicketCardComplete} resolvedTickets={resolvedTickets}></TaskStatus>
       </div>
     </div>
   );

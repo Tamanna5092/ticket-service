@@ -1,6 +1,10 @@
 import React from "react";
 
-export default function TaskStatus({ tickets, handleTicketCardComplete }) {
+export default function TaskStatus({
+  tickets,
+  handleTicketCardComplete,
+  resolvedTickets,
+}) {
   return (
     <div>
       <h1 className="text-2xl font-semibold">Task Status</h1>
@@ -35,10 +39,18 @@ export default function TaskStatus({ tickets, handleTicketCardComplete }) {
         {/* status 3 */}
         <div className="mt-6">
           <h1 className="text-2xl font-semibold mb-4">Resolved Task</h1>
-          <p className="text-[#627382]">No resolved tasks yet.</p>
-          <h2 className="text-lg text-[#001931] font-medium px-4 py-5 bg-[#E0E7FF] shadow">
-            Payment Failed - Card Declined
-          </h2>
+          {resolvedTickets.length > 0 ? (
+            resolvedTickets.map((ticket) => (
+              <h2
+                key={ticket.id}
+                className="text-lg text-[#001931] font-medium px-4 py-5 bg-[#E0E7FF] shadow mb-4"
+              >
+                {ticket.title}
+              </h2>
+            ))
+          ) : (
+            <p className="text-[#627382]">No resolved tasks yet.</p>
+          )}
         </div>
       </div>
     </div>
