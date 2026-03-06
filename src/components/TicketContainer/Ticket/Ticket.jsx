@@ -2,10 +2,11 @@ import React from "react";
 import { FaCircle } from "react-icons/fa";
 import { MdDateRange } from "react-icons/md";
 
-export default function Ticket({ ticket }) {
+export default function Ticket({ ticket, handleTicketCardAdd }) {
+  // console.log( "ticket", ticket);
   const { title, description, customer, priority, status, createdAt } = ticket;
   return (
-    <div className="card card-border bg-base-100 shadow-xl mx-4 md:mx-0">
+    <div onClick={() => handleTicketCardAdd(ticket)} className="card card-border bg-base-100 shadow-xl mx-4 md:mx-0 cursor-pointer">
       <div className="card-body">
         <div className="flex justify-between">
           <p className="text-xl font-medium">{title}</p>
