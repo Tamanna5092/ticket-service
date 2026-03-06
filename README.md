@@ -1,16 +1,63 @@
-# React + Vite
+# 📘 React Basic Concepts
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 1. What is JSX, and why is it used?
 
-Currently, two official plugins are available:
+**JSX (JavaScript XML)** is a syntax used in React that allows you to write **HTML-like code inside JavaScript**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Why JSX is used
 
-## React Compiler
+- Makes code easier to read  
+- Looks like HTML  
+- Helps developers build UI faster  
+- Allows JavaScript and UI together  
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 2. Difference between State and Props
+
+### Props
+Props are **read-only** and are passed from a **parent component to a child component**.  
+The child component **cannot change its own props**; it just receives them like a hand-me-down.
+
+### State
+State is **private and local** to the component.  
+The component **owns its state** and can change it whenever it needs to, usually in response to **user actions like a click**.
+
+
+---
+
+## 3. What is the useState Hook, and how does it work?
+
+The **useState hook** is used to **create and manage state in functional components**.  
+It returns an array with two items:
+
+1. The current state value  
+2. A function to update the state
+   
+---
+
+## 4. How can you share state between components in React?
+
+The most common method is called **Lifting State Up**.  
+React follows **one-way data flow**, meaning **data flows from parent to child components**.
+
+### Steps to Share State
+
+- Move the state to the **nearest common parent component**  
+- Pass the state down to child components using **props**  
+
+---
+
+
+## 5. How is event handling done in React?
+
+React handles events using **camelCase event names** and **JavaScript functions**.
+
+### Example
+
+```javascript
+<input
+  type="text"
+  onChange={(e) => console.log(e.target.value)}
+/>
