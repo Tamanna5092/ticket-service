@@ -11,6 +11,16 @@ function App() {
 
   const handleTicketCardAdd = (ticket) => {
     setTickets([...tickets, ticket]);
+    // Show toast notification
+    toast.info(`Customer ticket added!`, {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   };
 
   const handleTicketCardComplete = (ticketId) => {

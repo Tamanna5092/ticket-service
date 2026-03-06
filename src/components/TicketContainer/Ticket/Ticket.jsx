@@ -3,7 +3,8 @@ import { FaCircle } from "react-icons/fa";
 import { MdDateRange } from "react-icons/md";
 
 export default function Ticket({ ticket, handleTicketCardAdd }) {
-  const { id, title, description, customer, priority, status, createdAt } = ticket;
+  const { id, title, description, customer, priority, status, createdAt } =
+    ticket;
   return (
     <div
       onClick={() => handleTicketCardAdd(ticket)}

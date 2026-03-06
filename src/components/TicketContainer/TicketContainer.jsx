@@ -7,13 +7,24 @@ const TicketData = async () => {
   return res.json();
 };
 
-export default function TicketContainer({ tickets, handleTicketCardAdd, handleTicketCardComplete, resolvedTickets }) {
+export default function TicketContainer({
+  tickets,
+  handleTicketCardAdd,
+  handleTicketCardComplete,
+  resolvedTickets,
+}) {
   const ticketData = TicketData();
 
   return (
     <div className="grid gird-col md:grid-cols-4 gap-6 mt-10">
       <div className="md:col-span-3">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense
+          fallback={
+            <div className="flex justify-center items-center">
+              <span className="loading loading-spinner loading-xl"></span>
+            </div>
+          }
+        >
           <CustomerTickets
             ticketData={ticketData}
             handleTicketCardAdd={handleTicketCardAdd}
@@ -21,7 +32,11 @@ export default function TicketContainer({ tickets, handleTicketCardAdd, handleTi
         </Suspense>
       </div>
       <div className="md:col-span-1">
-        <TaskStatus tickets={tickets} handleTicketCardComplete={handleTicketCardComplete} resolvedTickets={resolvedTickets}></TaskStatus>
+        <TaskStatus
+          tickets={tickets}
+          handleTicketCardComplete={handleTicketCardComplete}
+          resolvedTickets={resolvedTickets}
+        ></TaskStatus>
       </div>
     </div>
   );
